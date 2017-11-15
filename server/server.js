@@ -19,6 +19,18 @@ io.on('connection', (socket) => {
 	// 	text: 'this is a test emit',
 	// 	createdAt: 123
 	// });
+	socket.emit('newMessage', {
+		from: 'Admin',
+		text: 'Welcome to the chat App',
+		createdAt: new Date().getTime()
+	});
+	socket.broadcast.emit('newMessage', {
+		from: 'Admin',
+		text: 'New user joined',
+		createdAt: new Date().getTime()
+	});
+	//socket emit from admin text: welcome to the chat app
+	// socket broadcast.emit from admin text new user joined.
 
 	socket.on('disconnect', () => {
 		console.log('User disconnected');
@@ -31,7 +43,12 @@ io.on('connection', (socket) => {
 			text: message.text,
 			createdAt: new Date().getTime()
 		});
-	})
+		// socket.broadcast.emit('newMessage', {
+		// 	from: message.from,
+		// 	text: message.text,
+		// 	createdAt: new Date().getTime()
+		// });
+	});
 });
 
 server.listen(port, () => {
