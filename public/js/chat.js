@@ -21,7 +21,6 @@ function scrollToBottom() {
 		console.log(" OUT OF SEE clientheight : ", clientHeight);
 		console.log(" OUT OF SEE scrollTop : ", scrollTop);
 		console.log(" OUT OF SEE scrollHeight : ", scrollHeight);
-		console.log("full msg : ", messages.scrollTop);
 	}
 }
 
